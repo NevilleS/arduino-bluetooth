@@ -40,18 +40,17 @@ void ParseCommand(const String& Command, String& Type, int& Value) {
 }
 
 // Blink the LED the given amount of times
-// Command: BLINK,<times>[,<period>]
-// times: number of times to blink
-// period: optional blink period (default is 200ms)
-boolean ProcessBlinkCommand(const int& Times) {
-  if (Times <= 0) {
-    Serial.println("Error processing BLINK command, times = invalid or zero");
+// Command: BLINK,<period>
+// period: toggle period, in ms, or 0 to disable
+boolean ProcessBlinkCommand(const int& Value) {
+  if (Value < 0) {
+    Serial.println("Error processing BLINK command, period < 0");
     return false;
   }
   Serial.println("Processing BLINK command:");
-  Serial.print("  times = ");
-  Serial.println(Times);
-  BlinkLed(BLUE_LED, Times);
+  Serial.print("  period = ");
+  Serial.println(Value);
+  s_blinkTicks = Value;
   return true;
 }
 
