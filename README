@@ -1,0 +1,12 @@
+/************************************************************
+*                    Arduino Bluetooth                      *
+************************************************************/
+
+========================SUMMARY==============================
+
+A couple basic Arduino sketches that connect to a RN-41 Bluetooth module, configure it, and receive commands over the
+serial interface to do some simple things (namely control LEDs)
+
+========================AUTHORS==============================
+Neville Samuell
+
